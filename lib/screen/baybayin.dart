@@ -1,3 +1,4 @@
+import 'package:baybayin/screen/screen.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/buttons.dart';
@@ -22,7 +23,9 @@ class BBaybayinScreen extends StatelessWidget {
           children: [
             BButtons(
               name: 'Baybayin letter',
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).pushNamed(BBaybayinLetter.id);
+              },
               buttonColor: Colors.grey,
             ),
             const SizedBox(
@@ -30,7 +33,9 @@ class BBaybayinScreen extends StatelessWidget {
             ),
             BButtons(
               name: 'How to write',
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).pushNamed(BHowtoWrite.id);
+              },
               buttonColor: Colors.grey,
             ),
             const SizedBox(
