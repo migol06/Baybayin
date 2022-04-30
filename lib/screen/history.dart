@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class BHistoryScreen extends StatelessWidget {
   static const String id = 'BHistoryScreen';
@@ -7,45 +8,10 @@ class BHistoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('History')),
-      body: Stack(
-        children: [
-          Image.asset(
-            'assets/images/historybg.png',
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            fit: BoxFit.cover,
-          ),
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                //Put the information inside the text
-                Text('Lorem Ipsum Dolor'),
-                SizedBox(
-                  height: 10,
-                ),
-                Text('Lorem Ipsum Dolor'),
-                SizedBox(
-                  height: 10,
-                ),
-                Text('Lorem Ipsum Dolor'),
-                SizedBox(
-                  height: 10,
-                ),
-                Text('Lorem Ipsum Dolor'),
-                SizedBox(
-                  height: 10,
-                ),
-                Text('Lorem Ipsum Dolor'),
-                SizedBox(
-                  height: 10,
-                ),
-                Text('Lorem Ipsum Dolor'),
-              ],
-            ),
-          )
-        ],
+      appBar: AppBar(title: const Text('History')),
+      body: const WebView(
+        initialUrl:
+            'https://alioshabielenberg.com/baybayin-and-nationalism/#:~:text=Baybayin%20is%20a%20writing%20system,at%20least%20the%20eighteenth%20century.&text=The%20word%20baybay%20means%20%E2%80%9Cto,written%20with%20the%20baybayin%20script',
       ),
     );
   }

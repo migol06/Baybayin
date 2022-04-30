@@ -22,7 +22,9 @@ class MyApp extends StatelessWidget {
         MyHomePage.id: (context) => const MyHomePage(),
         BTranslate.id: (context) => const BTranslate(),
         BBaybayinScreen.id: (context) => const BBaybayinScreen(),
-        BHistoryScreen.id: (context) => const BHistoryScreen()
+        BHistoryScreen.id: (context) => const BHistoryScreen(),
+        BBaybayinLetter.id: (context) => const BBaybayinLetter(),
+        BHowtoWrite.id: (context) => const BHowtoWrite()
       },
     );
   }
