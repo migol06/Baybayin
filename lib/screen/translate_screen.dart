@@ -23,8 +23,8 @@ class _BTranslateState extends State<BTranslate> {
 
   loadModel() async {
     await Tflite.loadModel(
-        model: "assets/model/ph_currency.tflite", //Put the model here
-        labels: "assets/model/ph_currency.txt", // Put the model label here
+        model: "assets/model/Dataset.tflite", //Put the model here
+        labels: "assets/model/Dataset.txt", // Put the model label here
         numThreads: 1, // defaults to 1
         isAsset:
             true, // defaults to true, set to false to load resources outside assets
