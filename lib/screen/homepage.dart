@@ -1,5 +1,6 @@
 import 'package:baybayin/screen/screen.dart';
 import 'package:baybayin/widgets/buttons.dart';
+import 'package:baybayin/widgets/newbutton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -22,42 +23,47 @@ class MyHomePage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                BButtons(
-                    buttonColor: Colors.yellow[700]!,
-                    name: 'Translate',
-                    onTap: () {
-                      Navigator.pushNamed(context, BTranslate.id);
-                    }),
-                const SizedBox(
-                  height: 15,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    NewButton(
+                      onTap: () => Navigator.pushNamed(context, BTranslate.id),
+                      imagelink: 'assets/images/translate.png',
+                      text: 'Translate',
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    NewButton(
+                      onTap: () =>
+                          Navigator.pushNamed(context, BBaybayinScreen.id),
+                      imagelink: 'assets/images/tutorial.png',
+                      text: 'Baybayin',
+                    ),
+                  ],
                 ),
-                BButtons(
-                  name: 'Baybayin',
-                  onTap: () {
-                    Navigator.pushNamed(context, BBaybayinScreen.id);
-                  },
-                  buttonColor: Colors.yellow[700]!,
+                SizedBox(
+                  width: 10,
                 ),
-                const SizedBox(
-                  height: 15,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    NewButton(
+                      onTap: () =>
+                          Navigator.pushNamed(context, BHistoryScreen.id),
+                      imagelink: 'assets/images/history.png',
+                      text: 'History',
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    NewButton(
+                      onTap: () => SystemNavigator.pop(),
+                      imagelink: 'assets/images/exit.png',
+                      text: 'Exit',
+                    ),
+                  ],
                 ),
-                BButtons(
-                  name: 'History',
-                  onTap: () {
-                    Navigator.pushNamed(context, BHistoryScreen.id);
-                  },
-                  buttonColor: Colors.yellow[700]!,
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                BButtons(
-                  name: 'Exit',
-                  onTap: () {
-                    SystemNavigator.pop();
-                  },
-                  buttonColor: Colors.yellow[700]!,
-                )
               ],
             ),
           )
