@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:baybayin/widgets/textare.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:clipboard/clipboard.dart';
 import '../widgets/widgets.dart';
@@ -20,6 +21,7 @@ class _BTranslateState extends State<BTranslate> {
   bool hasImage = false;
   File? image;
   String result = '';
+  FlutterTts flutterTts = FlutterTts();
 
   loadModel() async {
     await Tflite.loadModel(
@@ -47,7 +49,8 @@ class _BTranslateState extends State<BTranslate> {
       debugPrint(output.toString());
       if (mounted) {
         setState(() {
-          result = output.toString();
+          result = output['label'].toString();
+          outputTTS();
         });
       }
     }
@@ -75,6 +78,14 @@ class _BTranslateState extends State<BTranslate> {
         content: Text("Copy Text"),
       ));
     }
+  }
+
+  outputTTS() async {
+    await flutterTts.speak(result);
+  }
+
+  outputTTSerror() async {
+    await flutterTts.speak('Can not recognize the image. Try Again');
   }
 
   @override
@@ -137,12 +148,13 @@ class BBlankImageBox extends StatelessWidget {
       children: const [
         Icon(
           Icons.image_outlined,
+          size: 100,
         ),
         SizedBox(
           height: 15,
         ),
         Text(
-          'Click to input image, \nMax file size 10MB, Minimum \nResolution 1024 x 1024',
+          'Tap to select photos',
         )
       ],
     );
