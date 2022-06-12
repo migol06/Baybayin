@@ -31,10 +31,11 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  flutter_inappwebview: ^5.4.3+4
+  flutter_tts: ^3.4.0
   image_picker: ^0.8.5
   tflite: ^1.1.2
   webview_flutter: ^3.0.2
-  flutter_inappwebview: ^5.4.3+4
 
 dev_dependencies:
   flutter_lints: ^1.0.0
